@@ -21,14 +21,16 @@ class Robot
 
    # when turning left, facing the previous orientation: N -> W -> S -> E
   def left
-    @direction = VALID_DIRECTIONS[(VALID_DIRECTIONS.index(direction) - 1) % 4]
+    new_direction_index = (VALID_DIRECTIONS.index(@direction) - 1) % 4
+    @direction = VALID_DIRECTIONS[new_direction_index]
 
     nil
   end
 
   # when turning right, facing the next orientation: N -> E -> S -> W
   def right
-    @direction = VALID_DIRECTIONS[(VALID_DIRECTIONS.index(direction) + 1) % 4]
+    new_direction_index = (VALID_DIRECTIONS.index(@direction) + 1) % 4
+    @direction = VALID_DIRECTIONS[new_direction_index]
 
     nil
   end
