@@ -1,4 +1,8 @@
 class Setup
+
+  table = Table.new
+  robot_simulator = Simulator.new(table)
+
   puts "Enter a command or type EXIT to quit:"
 
   command = gets.chomp
