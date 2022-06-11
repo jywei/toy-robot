@@ -136,7 +136,15 @@ describe "Robot" do
   describe "#facing_any_direction?" do
     context "robot is not set with any direction" do
       it "should return false" do
-        expect(robot.facing_any_direction?).to be false
+        expect(robot.facing_any_direction?).to be(false)
+      end
+    end
+
+    context "robot is set with a direction" do
+      it "should return true" do
+        robot.orientation(:west)
+
+        expect(robot.facing_any_direction?).to be(true)
       end
     end
   end
