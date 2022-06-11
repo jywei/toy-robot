@@ -1,13 +1,13 @@
 # Simulator class will run the game, take the commands and execute robot's actions
 class Simulator
 
-  def initialize(table)
+  def initialize(table = Table.new)
     @table = table
     @robot = Robot.new
   end
 
   def execute(command)
-    return "Please enter something" if command.strip.empty?
+    return "Please enter something..." if command.strip.empty?
 
     input = command.split(/\s+/)
     action, placement = input.first.downcase, input.last
@@ -32,12 +32,6 @@ class Simulator
       @table.robot_being_placed? && @robot.facing_any_direction?
     end
 
-    def placement_validation
-      return if robot_on_table?
-
-      "Robot is not placed yet!"
-    end
-
     def place(placement)
       args = placement.split(/,/)
       x, y = args[0].to_i, args[1].to_i
@@ -51,7 +45,7 @@ class Simulator
     end
 
     def report
-      placement_validation
+      return "Robot is not placed yet!" unless robot_on_table?
 
       current_position = @table.current_position
       facing = @robot.direction
@@ -60,7 +54,7 @@ class Simulator
     end
 
     def move
-      placement_validation
+      return "Robot is not placed yet!" unless robot_on_table?
 
       current_position = @table.current_position
       move = @robot.move
@@ -71,7 +65,7 @@ class Simulator
     end
 
     def turn_direction(command)
-      placement_validation
+      return "Robot is not placed yet!" unless robot_on_table?
 
       @robot.send(command.to_sym)
     end
