@@ -22,7 +22,7 @@ ruby run.rb
 To run the tests, run:
 
 ```
-rspec
+bundle exec rspec
 ```
 
 ## Specification
