@@ -65,7 +65,7 @@ describe "Table" do
     end
 
     context "robot is not placed properly" do
-      before(:each) { table.place(10, 10) }
+      before { table.place(10, 10) }
 
       it "returns nil" do
         expect(subject).to be_nil
