@@ -7,7 +7,7 @@ describe "Simulator" do
 
   describe "#execute" do
     context "blank string" do
-      it "ignores the command without warning the user" do
+      it "ignores the command and warns the user" do
         expect(simulator.execute("")).to eq "Please enter something..."
       end
     end
@@ -15,7 +15,7 @@ describe "Simulator" do
     describe "before robot has been placed" do
       context "REPORT" do
         it "warns the user to place the robot first" do
-          expect(simulator.execute("REPORT")).to eq "Robot is not placed yet!"
+          expect(simulator.execute("REPORT")).to eq not_placed_message
         end
       end
 
