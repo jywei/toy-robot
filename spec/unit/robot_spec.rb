@@ -6,8 +6,8 @@ describe "Robot" do
   describe "#orientation" do
     it "allows orientation to be :north, :south, :east and :west" do
       %i[north east south west].each do |input_direction|
-        expect(robot.orientation(input_direction)).to eq(input_direction)
-        expect(robot.direction).to eq(input_direction)
+        expect(robot.orientation(input_direction)).to eq input_direction
+        expect(robot.direction).to eq input_direction
       end
     end
 
@@ -61,7 +61,7 @@ describe "Robot" do
         robot.orientation(:north)
         subject
 
-        expect(robot.direction).to eq(:west)
+        expect(robot.direction).to eq :west
       end
     end
 
@@ -70,7 +70,7 @@ describe "Robot" do
         robot.orientation(:east)
         subject
 
-        expect(robot.direction).to eq(:north)
+        expect(robot.direction).to eq :north
       end
     end
 
@@ -79,7 +79,7 @@ describe "Robot" do
         robot.orientation(:south)
         subject
 
-        expect(robot.direction).to eq(:east)
+        expect(robot.direction).to eq :east
       end
     end
 
@@ -88,7 +88,7 @@ describe "Robot" do
         robot.orientation(:west)
         subject
 
-        expect(robot.direction).to eq(:south)
+        expect(robot.direction).to eq :south
       end
     end
   end
@@ -101,7 +101,7 @@ describe "Robot" do
         robot.orientation(:north)
         subject
 
-        expect(robot.direction).to eq(:east)
+        expect(robot.direction).to eq :east
       end
     end
 
@@ -110,7 +110,7 @@ describe "Robot" do
         robot.orientation(:east)
         subject
 
-        expect(robot.direction).to eq(:south)
+        expect(robot.direction).to eq :south
       end
     end
 
@@ -119,7 +119,7 @@ describe "Robot" do
         robot.orientation(:south)
         subject
 
-        expect(robot.direction).to eq(:west)
+        expect(robot.direction).to eq :west
       end
     end
 
@@ -128,7 +128,7 @@ describe "Robot" do
         robot.orientation(:west)
         subject
 
-        expect(robot.direction).to eq(:north)
+        expect(robot.direction).to eq :north
       end
     end
   end
@@ -136,7 +136,7 @@ describe "Robot" do
   describe "#facing_any_direction?" do
     context "robot is not set with any direction" do
       it "should return false" do
-        expect(robot.facing_any_direction?).to be(false)
+        expect(robot.facing_any_direction?).to be false
       end
     end
 
@@ -144,7 +144,7 @@ describe "Robot" do
       it "should return true" do
         robot.orientation(:west)
 
-        expect(robot.facing_any_direction?).to be(true)
+        expect(robot.facing_any_direction?).to be true
       end
     end
   end

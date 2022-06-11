@@ -29,14 +29,14 @@ describe "Table" do
     subject { table.robot_being_placed? }
 
     it "is initially false" do
-      expect(subject).to eq(false)
+      expect(subject).to eq false
     end
 
     context "robot is properly placed" do
       before { table.place(0, 0) }
 
       it "returns true" do
-        expect(subject).to eq(true)
+        expect(subject).to eq true
       end
     end
 
@@ -44,7 +44,7 @@ describe "Table" do
       before { table.place(10, 10) }
 
       it "returns false" do
-        expect(subject).to eq(false)
+        expect(subject).to eq false
       end
     end
   end

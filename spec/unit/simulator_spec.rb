@@ -1,4 +1,4 @@
-require "spec_helper"
+req ire "spec_helper
 
 describe "Simulator" do
   let(:simulator)          { Simulator.new }
@@ -8,14 +8,14 @@ describe "Simulator" do
   describe "#execute" do
     context "blank string" do
       it "ignores the command without warning the user" do
-        expect(simulator.execute("")).to eq("Please enter something...")
+        expect(simulator.execute("")).to eq "Please enter something..."
       end
     end
 
     describe "before robot has been placed" do
       context "REPORT" do
         it "warns the user to place the robot first" do
-          expect(simulator.execute("REPORT")).to eq("Robot is not placed yet!")
+          expect(simulator.execute("REPORT")).to eq "Robot is not placed yet!"
         end
       end
 
@@ -29,7 +29,7 @@ describe "Simulator" do
         context "valid co-ordinates in an invalid direction or valid the table range" do
           it "does not place the robot on the table" do
             ["PLACE 0,1,TEST", "PLACE 0,10,NORTH"].each do |invalid_command|
-              expect(simulator.execute(invalid_command)).to eq(invalid_message)
+              expect(simulator.execute(invalid_command)).to eq invalid_message
             end
           end
         end
@@ -38,7 +38,7 @@ describe "Simulator" do
       context "`MOVE``, `RIGHT`, and `LEFT`" do
         it "warns the user to place the robot first" do
           %w[MOVE RIGHT LEFT].each do |action|
-            expect(simulator.execute(action)).to eq(not_placed_message)
+            expect(simulator.execute(action)).to eq not_placed_message
           end
         end
       end
@@ -57,7 +57,7 @@ describe "Simulator" do
         context "valid co-ordinates in an invalid direction or valid the table range" do
           it "does not place the robot on the table" do
             ["PLACE 0,1,TEST", "PLACE 0,10,NORTH"].each do |invalid_command|
-              expect(simulator.execute(invalid_command)).to eq(invalid_message)
+              expect(simulator.execute(invalid_command)).to eq invalid_message
             end
           end
         end
@@ -65,7 +65,7 @@ describe "Simulator" do
 
       describe "REPORT" do
         it "returns the result" do
-          expect(simulator.execute("REPORT")).to eq("0,0,NORTH")
+          expect(simulator.execute("REPORT")).to eq "0,0,NORTH"
         end
       end
 
@@ -80,7 +80,7 @@ describe "Simulator" do
           it "warns the user and does not move the robot" do
             4.times { simulator.execute("MOVE") }
 
-            expect(simulator.execute("MOVE")).to eq("WARNING: Robot will fall off the table")
+            expect(simulator.execute("MOVE")).to eq "WARNING: Robot will fall off the table"
           end
         end
       end

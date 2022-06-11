@@ -36,7 +36,7 @@ describe "Simulator" do
     let(:commands) { ["MOVE", "PLACE 0,0,NORTH"] }
 
     it "should ignore the command" do
-      expect(subject).to eq("0,0,NORTH")
+      expect(subject).to eq "0,0,NORTH"
     end
   end
 
@@ -44,7 +44,7 @@ describe "Simulator" do
     let(:commands) { ["PLACE 0,4,NORTH", "MOVE"] }
 
     it "should ignore the command" do
-      expect(subject).to eq("0,4,NORTH")
+      expect(subject).to eq "0,4,NORTH"
     end
   end
 
@@ -52,7 +52,7 @@ describe "Simulator" do
     let(:commands) { ["PLACE 0,0,NORTH", "PLACE 0,0,SOUTH"] }
 
     it "should return the later placement" do
-      is_expected.to eq("0,0,SOUTH")
+      is_expected.to eq "0,0,SOUTH"
     end
   end
 end
