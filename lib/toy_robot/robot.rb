@@ -35,12 +35,12 @@ class Robot
     nil
   end
 
-  def facing_any_direction?
-    !@direction.nil?
-  end
-
   def move
     MOVES[@direction]
+  end
+
+  def facing_any_direction?
+    !@direction.nil?
   end
 
 end
