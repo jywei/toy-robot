@@ -1,4 +1,4 @@
-req ire "spec_helper
+require "spec_helper"
 
 describe "Simulator" do
   let(:simulator)          { Simulator.new }
