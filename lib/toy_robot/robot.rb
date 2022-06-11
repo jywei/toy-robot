@@ -3,7 +3,7 @@
 class Robot
   attr_accessor :direction
 
-  # VALID_directions are orderecd clock-wise
+  # VALID_directions are orderecd clockwise
   VALID_DIRECTIONS = %i[north east south west].freeze
   # MOVES stores moving margin based on facing direction
   MOVES = {
@@ -19,7 +19,7 @@ class Robot
     @direction = direction
   end
 
-   # when turning left, facing the previous orientation: N -> W -> S -> E
+   # when turning left, face the previous orientation anti-clockwise: N -> W -> S -> E
   def left
     new_direction_index = (VALID_DIRECTIONS.index(@direction) - 1) % 4
     @direction = VALID_DIRECTIONS[new_direction_index]
@@ -27,7 +27,7 @@ class Robot
     nil
   end
 
-  # when turning right, facing the next orientation: N -> E -> S -> W
+  # when turning right, face the next orientation clockwise: N -> E -> S -> W
   def right
     new_direction_index = (VALID_DIRECTIONS.index(@direction) + 1) % 4
     @direction = VALID_DIRECTIONS[new_direction_index]
