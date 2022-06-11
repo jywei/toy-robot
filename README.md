@@ -1,5 +1,30 @@
 # Toy Robot
 
+## Installation
+
+```
+git clone git@github.com:jywei/toy-robot.git
+cd toy-robot
+gem install bundler
+bundle
+```
+
+## Executing The application
+
+To run the Toy Robot, run:
+
+```
+ruby run.rb
+```
+
+## Running The Tests
+
+To run the tests, run:
+
+```
+rspec
+```
+
 ## Specification
 
 ### Description
@@ -70,4 +95,3 @@ MOVE
 REPORT
 ```
 Output: `3,3,NORTH`
-
